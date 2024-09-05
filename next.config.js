@@ -10,8 +10,32 @@ const nextConfig = {
     dirs: ['app'],
   },
   images: {
-    domains: ['static.wixstatic.com'],
-    formats: ['image/webp'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "tailus.io",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinImage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "static.wixstatic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
 };
 

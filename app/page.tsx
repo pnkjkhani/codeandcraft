@@ -1,39 +1,40 @@
 import { CarouselClient } from '@app/components/Carousel/Carousel';
 import { WixMediaImage } from '@app/components/Image/WixMediaImage';
 import testIds from '@app/utils/test-ids';
+import Stats from './components/Home/Stats';
+import CourseCard from './components/Home/CourseCards';
+import TestimonialComponent from './components/Home/Testimonials';
+import BlogCards from './components/Shared/BlogCards';
+import FAQ from './components/Shared/FAQ';
+import FreeClassesSection from './components/Home/FreeClassSection';
 
 export default function Home() {
   return (
-    <div className="mx-auto relative sm:px-20 py-5">
+    <div className="mx-auto relative sm:px-2 ">
       <div className="text-center w-full relative">
         <div className="absolute top-0 left-0 h-[200px] sm:h-[calc(100%-55px)] w-full bg-black opacity-50"></div>
-        <video autoPlay muted loop className="w-full h-[200px] sm:h-fit">
+        <video autoPlay muted loop playsInline className="w-full sm:h-fit">
           <source
             src="https://video.wixstatic.com/video/0b340f_b4aaabafff194cf6ac9ee5511f58099d/720p/mp4/file.mp4"
             type="video/mp4"
           />
+          Your browser does not support the video tag.
         </video>
         <div className="absolute top-[40px] right-[30px] sm:top-2/4 sm:left-2/4 text-white sm:translate-y-[-50%] sm:translate-x-[-50%] font-site">
-          <h2 className="sm:text-4xl mb-4">FREE & ACCESSIBLE</h2>
-          <h1 className="sm:text-[90px] sm:leading-[90px]">
-            EDUCATION FOR ALL
+          <h2 className="sm:text-5xl mb-4 text-blue-500">Empowering Young Innovators</h2>
+          <h1 className="text-[20px] sm:text-[40px] sm:leading-[40px]">
+          Project-Based Learning for a Better Tomorrow!
           </h1>
         </div>
         <div className="flex flex-col sm:flex-row relative items-center bg-white mt-[-10px] sm:mt-[-55px] mx-auto max-w-xs sm:max-w-4xl border-t-4 border-blue-site font-site">
-          <h3 className="flex-1 sm:text-3xl py-4 px-8 text-center sm:text-left">
-            Take action to help us grow
-          </h3>
-          <a
-            href="/contact"
-            className="btn-main sm:text-2xl sm:p-8 hover:bg-purple-site w-fit"
-          >
-            DONATE
-          </a>
+
+          <Stats/>
+
         </div>
       </div>
-
+      <CourseCard/>
       <div
-        className="flex mt-12 sm:mt-32 sm:gap-12 flex-col sm:flex-row"
+        className="flex  lg:mt-12 sm:mt-32 sm:gap-12 flex-col sm:flex-row"
         data-testid={testIds.HOME_PAGE.HIGHLIGHTS}
       >
         <div className="basis-1/3">
@@ -46,11 +47,9 @@ export default function Home() {
             />
           </div>
           <div className="border-y-4 border-blue-site p-8 sm:w-60 relative bg-white sm:mt-[-300px]">
-            <h3 className="text-2xl font-site">Our Initiatives</h3>
+            <h3 className="text-2xl font-site">Our Mission</h3>
             <p className="my-6 text-sm">
-              Our initiatives bring people together to help solve real problems
-              and evoke a positive change. Explore our initiatives and see what
-              you can do to help.
+            Our mission is to revolutionize the way students learn coding and robotics by providing a fun, interactive, and project-based approach that fosters creativity, critical thinking, and innovation.
             </p>
             <a
               href="/projects"
@@ -71,13 +70,11 @@ export default function Home() {
             />
           </div>
           <div className="border-y-4 border-blue-site p-8 sm:w-60 relative bg-white sm:ml-32 sm:mt-[-430px]">
-            <h3 className="text-2xl font-site">Our Mission</h3>
+            <h3 className="text-2xl font-site">Our Initiatives</h3>
             <p className="my-6 text-sm">
-              We believe that education is a human right and a powerful tool for
-              social change. We provide educational projects, learning resources
-              and mentoring programs for kids of all ages and backgrounds. We
-              aim to create a world where everyone has the opportunity to learn
-              and grow.
+            Our goal is to create a supportive and inclusive community where students can explore their interests, develop their talents, and bring their ideas to life through hands-on learning experiences in coding and robotics.
+            <br/>
+            {/* Our mission is to make high-quality coding and robotics education accessible to everyone, regardless of background or financial means, and to help students develop the skills, confidence, and creativity needed to thrive in an increasingly complex and technological world. */}
             </p>
             <a href="/about" className="text-purple-site py-6 font-site">
               Read More
@@ -85,7 +82,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row sm:mt-32 mb-12 sm:gap-12">
+      {/* <div className="flex flex-col sm:flex-row sm:mt-32 mb-12 sm:gap-12">
         <div className="basis-2/3">
           <div className="h-[370px] sm:h-[470px] relative">
             <WixMediaImage
@@ -128,8 +125,8 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </div>
-      <h2 className="text-3xl sm:text-5xl text-center mb-10 sm:mb-20 font-site">
+      </div> */}
+      {/* <h2 className="text-3xl sm:text-5xl text-center mb-10 sm:mb-20 font-site">
         2035 in Numbers
       </h2>
       <div className="flex flex-col sm:flex-row gap-8 sm:justify-between items-center font-site">
@@ -163,8 +160,13 @@ export default function Home() {
             Centers
           </span>
         </div>
-      </div>
+      </div> */}
+      {/* <StepsToRegister/> */}
       <CarouselClient />
+      <FreeClassesSection/>
+      <TestimonialComponent/>
+      <BlogCards/>
+      <FAQ/>
     </div>
   );
 }

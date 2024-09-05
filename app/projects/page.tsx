@@ -1,14 +1,19 @@
 import { getWixClient } from '@app/hooks/useWixClientServer';
 import { WixMediaImage } from '@app/components/Image/WixMediaImage';
 import testIds from '@app/utils/test-ids';
+import {data} from '@app/jsondata';
 export default async function Projects() {
-  const wixClient = await getWixClient();
-  const { items } = await wixClient.items
-    .queryDataItems({
-      dataCollectionId: 'Our-Projects',
-    })
-    .find();
+  // const wixClient = await getWixClient();
+  // const { items } = await wixClient.items
+  //   .queryDataItems({
+  //     dataCollectionId: 'EducationalBlogs',
+  //   })
+  //   .find();
 
+  // console.log(items[0].data
+
+  // );
+  const items=data;
   return (
     <div className="relative">
       <div className="w-full h-[400px] relative">
@@ -38,23 +43,23 @@ export default async function Projects() {
         >
           {items!.map((item) => (
             <div
-              key={item._id}
+              key={item.id}
               className="p-4 relative"
               data-testid={testIds.PROJECTS_PAGE.PROJECT_ITEM_CONTAINER}
             >
               <div className="sm:w-[370px] h-[320px] relative">
                 <WixMediaImage
-                  media={item.data!.cover}
-                  alt={item.data!.title}
+                  media={item.cover}
+                  alt={item.title}
                   objectFit="cover"
                 />
               </div>
               <div className="bg-white sm:mt-[-50px] border-t-4 relative mx-6 px-2 pt-3 border-blue-site text-center">
-                <h2 className="mb-10 font-site">{item.data!.title}</h2>
-                <p className="text-sm mb-6">{item.data!.short_description}</p>
+                <h2 className="mb-10 font-site">{item.title}</h2>
+                <p className="text-sm mb-6">{item.body}</p>
                 <a
                   data-testid={testIds.PROJECTS_PAGE.PROJECT_ITEM_CTA}
-                  href={`/projects/${item.data!.slug}`}
+                  href={`/projects/${item.title}`}
                   className="text-purple-site py-6 font-site"
                 >
                   Read More
